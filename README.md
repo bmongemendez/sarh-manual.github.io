@@ -1,1 +1,1 @@
-"# SARH_Manual_De_Usuario" 
+# Manual de Usuario Sistema de Administración de Recursos Humanos 

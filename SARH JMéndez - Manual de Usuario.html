@@ -1,0 +1,608 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>SARH JMéndez - Manual de Usuario</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span>Manual de Usuario Sistema de Administración de Recursos Humanos (SARH)</span></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n5"><a class="md-toc-inner" href="#generalidades">Generalidades</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n170"><a class="md-toc-inner" href="#inicio-de-sesión">Inicio de sesión</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n178"><a class="md-toc-inner" href="#cerrar-sesión">Cerrar sesión</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n164"><a class="md-toc-inner" href="#menú-de-personalización">Menú de personalización</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n165"><a class="md-toc-inner" href="#usuario-administrador">Usuario Administrador</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n54"><a class="md-toc-inner" href="#tablero-1">Tablero</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n187"><a class="md-toc-inner" href="#usuarios-1">Usuarios</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n191"><a class="md-toc-inner" href="#añadir-usuario">Añadir usuario</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n194"><a class="md-toc-inner" href="#usuarios-2">Usuarios</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n199"><a class="md-toc-inner" href="#edición-de-usuario">Edición de usuario</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n204"><a class="md-toc-inner" href="#bitácoras">Bitácoras</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n210"><a class="md-toc-inner" href="#bitácora-de-empleados">Bitácora de empleados</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n226"><a class="md-toc-inner" href="#bitácora-de-pagos">Bitácora de pagos</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n10"><a class="md-toc-inner" href="#usuario-recursos-humanos">Usuario Recursos Humanos</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n18"><a class="md-toc-inner" href="#tablero-2">Tablero</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n22"><a class="md-toc-inner" href="#trabajadores">Trabajadores</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n25"><a class="md-toc-inner" href="#añadir-trabajador">Añadir trabajador</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n31"><a class="md-toc-inner" href="#trabajadores-activos">Trabajadores activos</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n39"><a class="md-toc-inner" href="#edición-de-información-básica">Edición de información básica</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n42"><a class="md-toc-inner" href="#edición-de-educación-y-licencias">Edición de educación y licencias</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n48"><a class="md-toc-inner" href="#edición-de-contrato">Edición de contrato</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n58"><a class="md-toc-inner" href="#trabajadores-inactivos">Trabajadores Inactivos</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n63"><a class="md-toc-inner" href="#pagos">Pagos</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n72"><a class="md-toc-inner" href="#generar-boleta-de-pago">Generar boleta de pago</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n74"><a class="md-toc-inner" href="#pagos-ingresados">Pagos ingresados</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n69"><a class="md-toc-inner" href="#impresión-de-boleta-de-pago">Impresión de boleta de pago</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n83"><a class="md-toc-inner" href="#deducciones">Deducciones</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n86"><a class="md-toc-inner" href="#edición-de-deducción">Edición de deducción</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n92"><a class="md-toc-inner" href="#reportes">Reportes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n98"><a class="md-toc-inner" href="#reporte-de-vacaciones">Reporte de vacaciones</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n104"><a class="md-toc-inner" href="#crear-reporte-de-vacaciones">Crear reporte de vacaciones</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n110"><a class="md-toc-inner" href="#reporte-de-evaluaciones">Reporte de evaluaciones</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n113"><a class="md-toc-inner" href="#crear-reporte-de-evaluaciones">Crear reporte de evaluaciones</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n121"><a class="md-toc-inner" href="#reporte-de-ausencias-injustificadas">Reporte de ausencias injustificadas</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n126"><a class="md-toc-inner" href="#crear-reporte-de-ausencias-injustificadas">Crear reporte de ausencias injustificadas.</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n130"><a class="md-toc-inner" href="#incapacidades">Incapacidades</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n135"><a class="md-toc-inner" href="#ingresar-incapacidad">Ingresar incapacidad</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n139"><a class="md-toc-inner" href="#incapacidades-ingresadas">Incapacidades ingresadas</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n142"><a class="md-toc-inner" href="#aguinaldos">Aguinaldos</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n146"><a class="md-toc-inner" href="#ingresar-aguinaldo">Ingresar aguinaldo</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n150"><a class="md-toc-inner" href="#aguinaldos-ingresados">Aguinaldos ingresados</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n156"><a class="md-toc-inner" href="#impresión-de-reporte-de-aguinaldo">Impresión de reporte de aguinaldo</a></span></p></div><h1 id='generalidades'><span>Generalidades</span></h1><h2 id='inicio-de-sesión'><span>Inicio de sesión</span></h2><p>&nbsp;</p><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718194922301.png" referrerpolicy="no-referrer" alt="image-20210718194922301"></p><p><span>En la pantalla de inicio de sesión deberás ingresar tu usuario y contraseña para posteriormente iniciar sesión dentro del sistema en el tipo de usuario asignado.</span></p><h2 id='cerrar-sesión'><span>Cerrar sesión</span></h2><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718195145540.png" referrerpolicy="no-referrer" alt="image-20210718195145540"></p><p><span>Para cerrar la sesión deberás dar click en el botón &quot;Cerrar Sesión&quot; en la barra superior de la pantalla.</span></p><h2 id='menú-de-personalización'><span>Menú de personalización</span></h2><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718194557180.png" referrerpolicy="no-referrer" alt="image-20210718194557180"></p><p><span>Al dar click en el botón </span><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718194645075.png" referrerpolicy="no-referrer" alt="image-20210718194645075"><span> en la parte inferior derecha o izquierda de la pantalla aparecerá el menú correspondiente a la personalización, desde donde puedes cambiar la fuente, el modo oscuro o cambiar el menú de módulos de izquierda a derecha o viceversa.</span></p><p>&nbsp;</p><h1 id='usuario-administrador'><span>Usuario Administrador</span></h1><h2 id='tablero-1'><span>Tablero</span></h2><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718195334205.png" referrerpolicy="no-referrer" alt="image-20210718195334205"></p><p><span>En esta sección se puede encontrar el fácil acceso a los demás módulos del sistema correspondientes al usuario administrador, así como ver la bitácora de movimientos recientes.</span></p><h2 id='usuarios-1'><span>Usuarios</span></h2><p><span>Dentro del módulo de usuarios podrás seleccionar 2 principales secciones las cuales son las siguientes:</span></p><h3 id='añadir-usuario'><span>Añadir usuario</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718195452602.png" referrerpolicy="no-referrer" alt="image-20210718195452602"></p><p><span>En esta sección podrás añadir un usuario nuevo al sistema con su respectivo nombre de usuario, contraseña y rol correspondiente.</span></p><h3 id='usuarios-2'><span>Usuarios</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718195614818.png" referrerpolicy="no-referrer" alt="image-20210718195614818"></p><p><span>Desde esta sección podrás ver los usuarios existentes dentro del sistema con su respectivo rol y en la columna de acciones podrás dar click en el botón </span><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718195806342.png" referrerpolicy="no-referrer" alt="image-20210718195806342"><span> para editar el usuario o el botón </span><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718195824477.png" referrerpolicy="no-referrer" alt="image-20210718195824477"><span> para eliminarlo.</span></p><h3 id='edición-de-usuario'><span>Edición de usuario</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718195854775.png" referrerpolicy="no-referrer" alt="image-20210718195854775"></p><p><span>Cuando desees editar un usuario podrás hacerlo cambiando su contraseña únicamente.</span></p><h2 id='bitácoras'><span>Bitácoras</span></h2><p><span>Dentro del módulo de bitácoras podrás seleccionar 2 secciones las cuales son las siguientes:</span></p><h3 id='bitácora-de-empleados'><span>Bitácora de empleados</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718200007886.png" referrerpolicy="no-referrer" alt="image-20210718200007886"></p><p><span>Desde aquí podrás ver la bitácora de movimientos recientes en el sistema correspondientes a empleados. Podrás dar click en las cabeceras de las columnas para ordenar los datos por dicha columna ya sea de forma ascendente o descendente.</span></p><p><span>Adicionalmente seleccionar cuantos registros mostrar por página:</span><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718200309101.png" referrerpolicy="no-referrer" alt="image-20210718200309101"></p><p><span>También pudes filtrar los resultados por búsqueda:</span></p><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718200426692.png" referrerpolicy="no-referrer" alt="image-20210718200426692"></p><p><span>Y podras cambiar de página dando click en los botones de navegación de la parte inferior derecha.</span></p><h3 id='bitácora-de-pagos'><span>Bitácora de pagos</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718200522063.png" referrerpolicy="no-referrer" alt="image-20210718200522063"></p><p><span>Desde aquí podrás ver la bitácora de movimientos recientes en el sistema correspondientes a pagos. Podrás dar click en las cabeceras de las columnas para ordenar los datos por dicha columna ya sea de forma ascendente o descendente.</span></p><p><span>Adicionalmente seleccionar cuantos registros mostrar por página:</span><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718200309101.png" referrerpolicy="no-referrer" alt="image-20210718200309101"></p><p><span>También pudes filtrar los resultados por búsqueda:</span></p><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718200426692.png" referrerpolicy="no-referrer" alt="image-20210718200426692"></p><p><span>Y podrás cambiar de página dando click en los botones de navegación de la parte inferior derecha.</span></p><p>&nbsp;</p><h1 id='usuario-recursos-humanos'><span>Usuario Recursos Humanos</span></h1><p>&nbsp;</p><h2 id='tablero-2'><span>Tablero</span></h2><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718150030227.png" referrerpolicy="no-referrer" alt="image-20210718150030227"></p><p><span>En esta sección se puede encontrar el fácil acceso a los demás módulos del sistema correspondientes al usuario de recursos humanos.</span></p><h2 id='trabajadores'><span>Trabajadores</span></h2><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718150446077.png" referrerpolicy="no-referrer" alt="image-20210718150446077"></p><p><span>En esta sección podemos encontrar 3 pestañas en la parte superior, en cada una de ellas puedes añadir un trabajador nuevo al sistema, visualizar y editar los trabajadores activos o bien, visualizar los trabajadores que se encuentran inactivos.</span></p><h3 id='añadir-trabajador'><span>Añadir trabajador</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718151011115.png" referrerpolicy="no-referrer" alt="image-20210718151011115"></p><p><span>En esta sección se ingresan los nuevos trabajadores al sistema, los campos señalados con (**) son de carácter obligatorio. Una vez que se han ingresado todos los datos requeridos y los opcionales si así se desee, se procede a dar click en el botón azul con texto &quot;Añadir&quot; y el nuevo trabajador será ingresado al sistema.</span></p><h3 id='trabajadores-activos'><span>Trabajadores activos</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718151835859.png" referrerpolicy="no-referrer" alt="image-20210718151835859"></p><p><span>Desde aquí se pueden ver los trabajadores actualmente activos en la empresa, de igual modo, puedes dar en el ícono en la columna de acciones que nos  permite editar el trabajador, el formulario de edición posee 3 secciones y se ve de la siguiente manera:</span></p><h4 id='edición-de-información-básica'><span>Edición de información básica</span></h4><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718152119609.png" referrerpolicy="no-referrer" alt="image-20210718152119609"></p><p><span>Aquí puedes editar la información básica, tal como número de cédula, teléfono, etc.</span></p><h4 id='edición-de-educación-y-licencias'><span>Edición de educación y licencias</span></h4><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718152431830.png" referrerpolicy="no-referrer" alt="image-20210718152431830"></p><p><span>Aquí puedes editar la información del grado de educación o los tipos de licencias que posee el trabajador.</span></p><h4 id='edición-de-contrato'><span>Edición de contrato</span></h4><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718152610217.png" referrerpolicy="no-referrer" alt="image-20210718152610217"></p><p><span>Aquí puedes editar la información del contrato como el puesto o el cargo específico.</span></p><h3 id='trabajadores-inactivos'><span>Trabajadores Inactivos</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718152903395.png" referrerpolicy="no-referrer" alt="image-20210718152903395"></p><p><span>En esta sección se pueden visualizar los trabajadores que actualmente no están trabajando en la empresa (tienen el contrato finalizado) pero que en el pasado lo hicieron.</span></p><h2 id='pagos'><span>Pagos</span></h2><p><span>En este módulo puedes encontrar 2 secciones en las que se divide las cuales son las siguientes.</span></p><h3 id='generar-boleta-de-pago'><span>Generar boleta de pago</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718153034611.png" referrerpolicy="no-referrer" alt="image-20210718153034611"></p><p><span>Aquí encontrarás el formulario para generar las boletas de pago correspondientes por empleado. Deberás seleccionar un empleado y un periodo de pago y los cálculos correspondientes se harán automáticamente, adicionalmente puedes agregar algún tipo de observación correspondiente a dicho pago para posteriormente dar click en el botón azul &quot;Añadir&quot;.</span></p><h3 id='pagos-ingresados'><span>Pagos ingresados</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718153640311.png" referrerpolicy="no-referrer" alt="image-20210718153640311"></p><p><span>Aquí podrás ver todos los pagos ingresados, del mismo modo que dar click en el botón </span><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718153555621.png" referrerpolicy="no-referrer" alt="image-20210718153555621"><span> en la columna de acciones para imprimir la boleta de pago.</span></p><h4 id='impresión-de-boleta-de-pago'><span>Impresión de boleta de pago</span></h4><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718153734489.png" referrerpolicy="no-referrer" alt="image-20210718153734489"></p><p><span>Cuando quieras imprimir una boleta de pago podrás seleccionar el tamaño de la hoja y posteriormente dar click en el botón azul &quot;Imprimir&quot;.</span></p><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718153846270.png" referrerpolicy="no-referrer" alt="image-20210718153846270"></p><p><span>Te aparecerá un formulario muy similar a este en donde lo podrás guardar como PDF o enviarlo a una impresora conectada o por medio de Wifi.</span></p><h2 id='deducciones'><span>Deducciones</span></h2><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718153958661.png" referrerpolicy="no-referrer" alt="image-20210718153958661"></p><p><span>En este modulo pudes ver las deducciones correspondientes a los pagos de los trabajadores, del mismo modo en que puedes dar click en el botón </span><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718154103889.png" referrerpolicy="no-referrer" alt="image-20210718154103889"><span> para editar los porcentajes de las mismas.</span></p><h3 id='edición-de-deducción'><span>Edición de deducción</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718154300189.png" referrerpolicy="no-referrer" alt="image-20210718154300189"></p><p>&nbsp;</p><p><span>Cuando quieras editar una deducción, podrás cambiar los porcentajes del patrono o del trabajador para posteriormente dar click  en el botón azul &quot;Guardar&quot; o bien si no quieres hacer ningún cambio puedes dar click en el botón con borde azul &quot;Volver a la lista&quot;.</span></p><h2 id='reportes'><span>Reportes</span></h2><p><span>En el módulo de reportes puedes ingresar a 3 secciones de reportes diferentes las cuales son las siguientes:</span></p><h3 id='reporte-de-vacaciones'><span>Reporte de vacaciones</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718160058687.png" referrerpolicy="no-referrer" alt="image-20210718160058687"></p><p><span>Aqui puedes ver los reportes de vacaciones existentes, así como agregar uno nuevo dando click en el botón azul superior.</span></p><h4 id='crear-reporte-de-vacaciones'><span>Crear reporte de vacaciones</span></h4><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718160358454.png" referrerpolicy="no-referrer" alt="image-20210718160358454"></p><p><span>Cuando quieras crear un nuevo reporte de vacaciones deberás seleccionar el trabajador, la fecha de inicio y fin y marcar si fueron aprobadas y opcionalmente alguna observación conforme a dicho reporte de vacaciones.</span></p><h3 id='reporte-de-evaluaciones'><span>Reporte de evaluaciones</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718192404451.png" referrerpolicy="no-referrer" alt="image-20210718192404451"></p><p><span>Aqui puedes ver los reportes de evaluaciones existentes, así como agregar uno nuevo dando click en el botón azul superior.</span></p><h4 id='crear-reporte-de-evaluaciones'><span>Crear reporte de evaluaciones</span></h4><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718192558930.png" referrerpolicy="no-referrer" alt="image-20210718192558930"></p><p><span>Cuando quieras crear un nuevo reporte de vacaciones deberás seleccionar el trabajador, la calificación y opcionalmente alguna observación adicional.</span></p><h3 id='reporte-de-ausencias-injustificadas'><span>Reporte de ausencias injustificadas</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718192837175.png" referrerpolicy="no-referrer" alt="image-20210718192837175"></p><p><span>Aqui puedes ver los reportes de ausencias injustificadas existentes, así como agregar uno nuevo dando click en el botón azul superior.</span></p><h4 id='crear-reporte-de-ausencias-injustificadas'><span>Crear reporte de ausencias injustificadas.</span></h4><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718192918965.png" referrerpolicy="no-referrer" alt="image-20210718192918965"></p><p><span>Cuando quieras crear un nuevo reporte de ausencias injustificadas deberás seleccionar el trabajador,la fecha de inicio y fin y opcionalmente alguna nota adicional.</span></p><h2 id='incapacidades'><span>Incapacidades</span></h2><p><span>En el módulo de incapacidades puedes seleccionar 2 secciones diferentes las cuales son las siguientes:</span></p><h3 id='ingresar-incapacidad'><span>Ingresar incapacidad</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718193045731.png" referrerpolicy="no-referrer" alt="image-20210718193045731"></p><p><span>Desde aquí pudes ingresar la incapacidad correspondiente seleccionando el empleado, el tipo de incapacidad, el intervalo y cualquier tipo de evidencia correspondiente al caso lo cual lo puedes hacer o arrastrando los archivos al área marcada o bien dando click en el botón &quot;Examinar&quot; y buscar los archivos en tu computador.</span></p><h3 id='incapacidades-ingresadas'><span>Incapacidades ingresadas</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718193618544.png" referrerpolicy="no-referrer" alt="image-20210718193618544"></p><p><span>Desde aquí podrás ver todas las incapacidades ingresadas hasta el momento.</span></p><h2 id='aguinaldos'><span>Aguinaldos</span></h2><p><span>En el módulo de aguinaldos puedes seleccionar 2 secciones diferentes las cuales son las siguientes:</span></p><h3 id='ingresar-aguinaldo'><span>Ingresar aguinaldo</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718193716188.png" referrerpolicy="no-referrer" alt="image-20210718193716188"></p><p><span>Desde aquí podrás generar el reporte de aguinaldos correspondiente al empleado que selecciones en el campo correspondiente y los demás campos se llenarán automáticamente, adicionalmente puedes agregar cualquier tipo de anotación adicional.</span></p><h3 id='aguinaldos-ingresados'><span>Aguinaldos ingresados</span></h3><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718194050382.png" referrerpolicy="no-referrer" alt="image-20210718194050382"></p><p><span>En esta sección puedes ver todos los aguinaldos ingresados hasta el momento, del mismo modo en que puedes dar click en el botón </span><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718194202487.png" referrerpolicy="no-referrer" alt="image-20210718194202487"><span> en la columna de acciones y podrás imprimir el reporte específico.</span></p><h4 id='impresión-de-reporte-de-aguinaldo'><span>Impresión de reporte de aguinaldo</span></h4><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718194255035.png" referrerpolicy="no-referrer" alt="image-20210718194255035"></p><p><span>Cuando quieras imprimir un reporte de aguinaldo podrás seleccionar el tamaño de la hoja y posteriormente dar click en el botón azul &quot;Imprimir&quot;.</span></p><p><img src="C:\Users\bmong\AppData\Roaming\Typora\typora-user-images\image-20210718194432793.png" referrerpolicy="no-referrer" alt="image-20210718194432793"></p><p><span>Te aparecerá un formulario muy similar a este en donde lo podrás guardar como PDF o enviarlo a una impresora conectada o por medio de Wifi.</span></p></div></div>
+</body>
+</html>
